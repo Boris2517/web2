@@ -1,64 +1,55 @@
-package com.example.fitness.entity;
+package com.example.fitness.entity.DTO;
 
-import javax.persistence.*;
+import com.example.fitness.entity.Role;
+
+import javax.persistence.Column;
 import java.util.Date;
 
-import static javax.persistence.InheritanceType.TABLE_PER_CLASS;
+public class TrainerDTO {
 
-
-@Entity
-@Inheritance(strategy = TABLE_PER_CLASS)
-public abstract class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-    @Column(name="username", unique=true, nullable=false)
     private String username;
-    @Column(name="password", unique=false, nullable=false)
+
     private String password;
-    @Column(name="name", unique=false, nullable=false)
+
     private String name;
-    @Column(name="surname", unique=false, nullable=false)
+
     private String surname;
-    @Column(name="phone", unique=false, nullable=false)
+
     private String phone;
-    @Column(name="email", unique=true, nullable=false)
+
     private String email;
-    @Column(name="birth_date", unique=false, nullable=true)
+
     private Date birthdate;
-    @Column(name="role", unique=false, nullable=false)
+
     private Role role;
-    @Column(name="active_status", unique=false, nullable=false)
+
     private Boolean active;
 
-    public User() {
+    public TrainerDTO() {
     }
 
-    public User(String username, String password, String name, String surname, String email) {
+    public TrainerDTO(String username, String password) {
         this.username = username;
         this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
+        this.role = Role.TRAINER;
     }
 
-    public User(String username, String password, String name, String surname, String phone, String email) {
+    public TrainerDTO(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = Role.TRAINER;
+    }
+
+    public TrainerDTO(String username, String password, String name, String surname, String phone, String email, Date birthdate) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.email = email;
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.birthdate = birthdate;
+        this.role = Role.TRAINER;
     }
 
     public String getUsername() {
@@ -131,21 +122,5 @@ public abstract class User {
 
     public void setActive(Boolean active) {
         this.active = active;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", birthdate=" + birthdate +
-                ", role=" + role +
-                ", active=" + active +
-                '}';
     }
 }

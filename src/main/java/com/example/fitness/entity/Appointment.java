@@ -3,6 +3,7 @@ package com.example.fitness.entity;
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Appointment {
@@ -10,6 +11,9 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToMany
+    List<Member> participans;
 
     @OneToOne
     Training trainings;
@@ -21,6 +25,14 @@ public class Appointment {
     int numberOfAttendees;
     @Column(name="date", unique=false, nullable=true)
     Date date;
+    //Fintes centar
+    @OneToOne
+    FitnessCenter fitnessCenter;
+    @OneToOne
+    Hall hall;
+
+    //Cena
+    float price;
 
 
     public Appointment() {

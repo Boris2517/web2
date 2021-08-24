@@ -12,10 +12,19 @@ public class Trainer extends User{
 
     //Lista treninga koje on drzi
     @OneToMany
+    @Column(nullable = true)
     private Set<Training> trainingList = new HashSet<>();
 
 
+    //Prosecna ocena srednja ocena koja se izracunava svaki put kada neko oceni trening koji je on odrzao
+    @Column(name="average_rating", unique=false, nullable=true)
+    private float averageRating;
+
     public Trainer() {
+    }
+
+    public Trainer(String username, String password, String name, String surname, String phone, String email) {
+        super(username, password, name, surname, phone, email);
     }
 
     public Trainer(Set<Training> trainingList, float averageRating) {
@@ -23,10 +32,6 @@ public class Trainer extends User{
         this.trainingList = trainingList;
         this.averageRating = averageRating;
     }
-
-    //Prosecna ocena srednja ocena koja seizracunava svaki put kada neko oceni trening koji je on odrzao
-    @Column(name="average_rating", unique=false, nullable=true)
-    private float averageRating;
 
     public Set<Training> getTrainingList() {
         return trainingList;

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+    <link rel="stylesheet" href="css/adminpanel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- <table id="trainers">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>username</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>status</th>
+        </tr> -->
+<!--        <tr>-->
+<!--            <td>Name</td>-->
+<!--            <td>Surname</td>-->
+<!--            <td>username</td>-->
+<!--            <td>email</td>-->
+<!--            <td>phone</td>-->
+<!--            <td>status</td>-->
+<!--        </tr>-->
+    <!-- </table> -->
+
+    <div class="container">
+        <nav>Navbar</nav>
+        <main>
+            <section id="section_centers" class="section section__centers">
+                <table id="fitness_table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="section_trainers" class="section section__trainers">
+                <table id="trainers_table">
+                    <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+
+                  
+                </table>
+            </section>
+            <!-- 
+
+                this.username = username;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.email = email;
+        this.birthdate = birthdate;
+             -->
+            <section id="section_addTrainer" class="section">
+                <div>
+                    <form id="addTrainerForm">
+                        <label>username</label>
+                        <input type="text" id="trainerUsername">
+                        <label>password</label>
+                        <input type="password" id="trainerPassword">
+                        <label>name</label>
+                        <input type="text" id="trainerName">
+                        <label>surname</label>
+                        <input type="text" id="trainerSurname">
+                        <label>phone</label>
+                        <input type="text" id="trainerPhone">
+                        <label>Email</label>
+                        <input type= "email" id="trainerEmail">
+                        <label>Birthday</label>
+                        <input type="date" id="birthdate">
+                        <button type="submit" >Submit</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="section_addCenter" class="section">
+                <div>
+                    <form id="addCenterForm">
+                        <label>Name</label>
+                        <input type="text" id="centerName">
+                        <label>Address</label>
+                        <input type="text" id="centerAddress">
+                        <label>Phone</label>
+                        <input type="text" id="centerPhone">
+                        <label>Email</label>
+                        <input type= "email" id="centerEmail">
+                        <button type="submit" >Submit</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="section_addHall" class="section">
+                <div>
+                    <div>
+                        
+                        <label for="halls">Choose Fitness Center:</label>
+                        <select name="halls" id="halls">
+
+                        </select>
+
+                        <thead>
+                            <tr>
+                                <th>fitnessCenterName</th>
+                                <th>Mark</th>
+                                <th>Capacity</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+    
+                        </tbody>
+
+                    </div>
+
+
+
+<!-- 
+                    private Integer capacity;
+                    private String mark;
+                    private String fitnessCenterName; -->
+                    <!-- <form id="addHallForm">
+                        <label>Name</label>
+                        <input type="text" id="centerName">
+                        <label>Address</label>
+                        <input type="text" id="centerAddress">
+                        <label>Phone</label>
+                        <input type="text" id="centerPhone">
+                        <label>Email</label>
+                        <input type= "email" id="centerEmail">
+                        <button type="submit" >Submit</button>
+                    </form> -->
+                </div>
+            </section>
+        </main>
+        <div class="sidebar">
+            <ul class="sidebar__list">
+                <li  class="list__item"><a href="#section_centers">Fitness Centers</a></li>
+                <li  class="list__item"><a href="#section_trainers">Trainers</a></li>
+                <li  class="list__item"><a href="#section_addTrainer">Add trainer</a></li>
+                <li  class="list__item"><a href="#section_addCenter">Add center</a></li>
+                <li  class="list__item"><a href="#section_addHall">Add hall</a></li>
+            </ul>
+        </div>
+        <div class="add" ><a href="#">Add new Fitness Centers</a></div>
+        <div class="add" ><a href="#">Add new halls</a></div>
+        <div class="add" ><a href="#">Add new trainers</a></div>
+        <div></div>
+        <div></div>
+        <!-- <div class="box b">B</div>
+        <div class="box c">C</div> -->
+        <!-- <div class="box d">
+          <div class="box e">E</div>
+          <div class="box f">F</div>
+          <div class="box g">G</div>
+        </div> -->
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <!--    <script src="../static/js/jquery-3.6.0.min"></script>-->
+    <script src="js/adminpanel.js"></script>
+    <script src="js/fitnessCenter.js"></script>
+    <script src="js/trainers.js"></script>
+
+
+
+</body>
+</html>

@@ -16,7 +16,16 @@ public class Hall {
     @ManyToMany
     Set<Appointment> trainingList = new HashSet<>();
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    FitnessCenter fitnessCenter;
+
     public Hall() {
+    }
+
+    public Hall(Integer capacity, String mark, FitnessCenter fitnessCenter) {
+        this.capacity = capacity;
+        this.mark = mark;
+        this.fitnessCenter = fitnessCenter;
     }
 
     public Hall(Long id, Integer capacity, String mark, Set<Appointment> trainingList) {

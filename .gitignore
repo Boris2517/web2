@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+**/src/main/resources/static/node_modules
+**/src/main/resources/static/gulpfile.js
+**/src/main/resources/static/package.json
+**/src/main/resources/static/package-lock.json
+**/src/main/resources/static/sass
+**/src/main/resources/static/gulpfile.js

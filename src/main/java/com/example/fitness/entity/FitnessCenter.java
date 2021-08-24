@@ -1,8 +1,7 @@
 package com.example.fitness.entity;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class FitnessCenter {
@@ -20,7 +19,25 @@ public class FitnessCenter {
     @OneToMany
     Set<Hall> halls = new HashSet<>();
 
+    //Raspored odrzavanja treninga zajedno sa cenama za svaki termin posebno
+    @OneToMany
+    Set<Appointment> appointments = new HashSet<>();
+
+
+
+
     public FitnessCenter() {
+    }
+
+    public FitnessCenter(String name) {
+        this.name = name;
+    }
+
+    public FitnessCenter(String name, String address, String phone, String email) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
     }
 
     public FitnessCenter(Long id, String name, String address, String phone, String email, Set<Trainer> trainers, Set<Hall> halls) {
