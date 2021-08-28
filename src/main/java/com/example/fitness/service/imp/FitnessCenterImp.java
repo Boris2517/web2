@@ -1,9 +1,7 @@
 package com.example.fitness.service.imp;
 
 
-import com.example.fitness.entity.DTO.FitnessCenterDTO;
-import com.example.fitness.entity.DTO.FitnessCenterNameDTO;
-import com.example.fitness.entity.DTO.HallDTO;
+import com.example.fitness.entity.DTO.*;
 import com.example.fitness.entity.FitnessCenter;
 import com.example.fitness.entity.Hall;
 import com.example.fitness.repository.FitnessCenterRepository;
@@ -31,6 +29,17 @@ public class FitnessCenterImp implements FitnessCenterService {
     public void removeFitnessCenter(FitnessCenterNameDTO fitnessCenterNameDTO) throws Exception {
         FitnessCenter fc = this.fitnessCenterRepository.findByName(fitnessCenterNameDTO.getName());
         this.fitnessCenterRepository.deleteById(fc.getId());
+    }
+
+    @Override
+    public FitnessCenter updateFitnessCenter(FitnessCenterNewDTO fitnessCenterNewDTO) throws Exception {
+        FitnessCenter fitnessCenter = this.fitnessCenterRepository.findByName(fitnessCenterNewDTO.getName());
+        fitnessCenter.setName(fitnessCenterNewDTO.getNewName());
+        fitnessCenter.setAddress(fitnessCenterNewDTO.getNewAddress());
+        fitnessCenter.setPhone(fitnessCenterNewDTO.getNewPhone());
+        fitnessCenter.setEmail(fitnessCenterNewDTO.getNewEmail());
+
+        return this.fitnessCenterRepository.save(fitnessCenter);
     }
 
     @Override
@@ -63,16 +72,25 @@ public class FitnessCenterImp implements FitnessCenterService {
     }
 
     @Override
-    public Hall updateHall(HallDTO hall) throws Exception {
-        FitnessCenter fitnessCenter = this.fitnessCenterRepository.findByName(hall.getFitnessCenterName());
-        Hall hall1 = this.hallRepository.findByMarkAndFitnessCenter(hall.getMark(), fitnessCenter);
-        if(hall1 == null){
-            throw new Exception("Hall does not exist!");
-        }
-        hall1.setCapacity(hall.getCapacity());
-        hall1.setMark(hall.getMark());
+    public Hall updateHall(HallNewDTO hall) throws Exception {
 
-        return this.hallRepository.save(hall1);
+
+
+        FitnessCenter fitnessCenter = this.fitnessCenterRepository.findByName(hall.getFitnessCenterName());
+        Hall oldHall = this.hallRepository.findByMarkAndCapacityAndFitnessCenter(hall.getMark(),hall.getCapacity(), fitnessCenter);
+
+
+        oldHall.setCapacity(hall.getNewCapacity());
+        oldHall.setMark(hall.getNewMark());
+
+//        Hall hall1 = this.hallRepository.findByMarkAndFitnessCenter(hall.getMark(), fitnessCenter);
+//        if(hall1 == null){
+//            throw new Exception("Hall does not exist!");
+//        }
+//        hall1.setCapacity(hall.getCapacity());
+//        hall1.setMark(hall.getMark());
+
+        return this.hallRepository.save(oldHall);
     }
 
     @Override

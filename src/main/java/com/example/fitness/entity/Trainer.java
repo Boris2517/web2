@@ -25,6 +25,8 @@ public class Trainer extends User{
 
     public Trainer(String username, String password, String name, String surname, String phone, String email) {
         super(username, password, name, surname, phone, email);
+        this.setRole(Role.TRAINER);
+        this.setActive(true);
     }
 
     public Trainer(Set<Training> trainingList, float averageRating) {

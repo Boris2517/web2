@@ -13,6 +13,7 @@ public interface HallRepository extends JpaRepository<Hall, Long> {
     //FitnessCenter findByName(String fitnessCenterName);
 
     Hall findByMarkAndFitnessCenter(String mark, FitnessCenter fitnessCenter);
+    Hall findByMarkAndCapacityAndFitnessCenter(String mark, Integer capacity, FitnessCenter fitnessCenter);
     //void deleteByFitnessCenterAndMark(FitnessCenter ft, String mark);
     //void deleteByFitnessCenterAndMark(FitnessCenter ft, String mark);
 

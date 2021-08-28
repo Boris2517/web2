@@ -15,6 +15,9 @@ public class Training {
     private String type;
     @Column(name="duration", unique=false, nullable=false)
     private Integer duration;
+    @OneToOne
+    private Trainer creator;
+
 
     public Training() {
     }
@@ -77,5 +80,13 @@ public class Training {
 
     public void setDuration(Integer duration) {
         this.duration = duration;
+    }
+
+    public Trainer getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Trainer creator) {
+        this.creator = creator;
     }
 }

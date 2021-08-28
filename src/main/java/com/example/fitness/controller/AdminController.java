@@ -1,9 +1,7 @@
 package com.example.fitness.controller;
 
 
-import com.example.fitness.entity.DTO.FitnessCenterDTO;
-import com.example.fitness.entity.DTO.FitnessCenterNameDTO;
-import com.example.fitness.entity.DTO.HallDTO;
+import com.example.fitness.entity.DTO.*;
 import com.example.fitness.entity.FitnessCenter;
 import com.example.fitness.entity.Hall;
 import com.example.fitness.service.AdminService;
@@ -50,8 +48,12 @@ public class AdminController {
 
         return new ResponseEntity<>(fitnessCenterDTOList, HttpStatus.ACCEPTED);
     }
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, value = "/center")
+    public ResponseEntity<FitnessCenter> updateFitnessCenter(@RequestBody FitnessCenterNewDTO fitnessCenterNewDTO) throws Exception {
+        FitnessCenter fitnessCenter = this.fitnessCenterService.updateFitnessCenter(fitnessCenterNewDTO);
 
-//@PathVariable Long id
+        return new ResponseEntity<>(fitnessCenter, HttpStatus.ACCEPTED);
+    }
 
 
     @DeleteMapping(value = "/center/{name}")
@@ -90,7 +92,7 @@ public class AdminController {
 
 
     @PutMapping(value = "/center/hall",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Hall> updateHall(@RequestBody HallDTO hall) throws Exception {
+    public ResponseEntity<Hall> updateHall(@RequestBody HallNewDTO hall) throws Exception {
 
         Hall newHall = this.fitnessCenterService.updateHall(hall);
 

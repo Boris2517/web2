@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 public class AppointmentRating {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
