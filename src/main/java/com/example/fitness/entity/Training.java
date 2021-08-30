@@ -12,7 +12,7 @@ public class Training {
     @Column(name="description", unique=false, nullable=false)
     private String description;
     @Column(name="type", unique=false, nullable=false)
-    private String type;
+    private TrainingType type;
     @Column(name="duration", unique=false, nullable=false)
     private Integer duration;
     @OneToOne
@@ -22,14 +22,13 @@ public class Training {
     public Training() {
     }
 
-    public Training(Long id, String name, String description, String type, Integer duration) {
-        this.id = id;
+    public Training(String name, String description, TrainingType type, Integer duration, Trainer creator) {
         this.name = name;
         this.description = description;
         this.type = type;
         this.duration = duration;
+        this.creator = creator;
     }
-
 
     @Override
     public String toString() {
@@ -66,11 +65,11 @@ public class Training {
         this.description = description;
     }
 
-    public String getType() {
+    public TrainingType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TrainingType type) {
         this.type = type;
     }
 

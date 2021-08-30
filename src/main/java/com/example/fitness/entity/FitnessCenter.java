@@ -14,14 +14,14 @@ public class FitnessCenter {
     private String email;
 
     @OneToMany
-    Set<Trainer> trainers = new HashSet<>();
+    private Set<Trainer> trainers = new HashSet<>();
 
-    @OneToMany
-    Set<Hall> halls = new HashSet<>();
+    @OneToMany(cascade = {CascadeType.ALL})
+    private Set<Hall> halls = new HashSet<>();
 
     //Raspored odrzavanja treninga zajedno sa cenama za svaki termin posebno
-    @OneToMany
-    Set<Appointment> appointments = new HashSet<>();
+    @OneToMany(cascade = {CascadeType.ALL})
+    private Set<Appointment> appointments = new HashSet<>();
 
 
 
@@ -98,11 +98,31 @@ public class FitnessCenter {
         this.trainers = trainers;
     }
 
+    public void setHalls(Set<Hall> halls) {
+        this.halls = halls;
+    }
+
+    public Set<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(Set<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
     public Set<Hall> getHalls() {
         return halls;
     }
 
-    public void setHalls(Set<Hall> halls) {
-        this.halls = halls;
+    public void addTrainer(Trainer trainer){
+        this.trainers.add(trainer);
     }
+
+    public void addHall(Hall hall){
+        this.halls.add(hall);
+    }
+
+    public void addAppointment(Appointment appointment){this.appointments.add(appointment);}
+
+
 }

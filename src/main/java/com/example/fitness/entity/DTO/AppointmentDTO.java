@@ -12,6 +12,8 @@ import java.util.Date;
 
 public class AppointmentDTO {
 
+    Long id;
+
     String trainerUsername;
 
     String trainingName;
@@ -105,5 +107,13 @@ public class AppointmentDTO {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

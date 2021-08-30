@@ -1,12 +1,14 @@
 package com.example.fitness.entity.DTO;
 
+import com.example.fitness.entity.TrainingType;
+
 import javax.persistence.Column;
 
 public class TrainingDTO {
 
     private String name;
     private String description;
-    private String type;
+    private TrainingType type;
     private Integer duration;
     private String trainerUsername;
 
@@ -14,7 +16,7 @@ public class TrainingDTO {
     public TrainingDTO() {
     }
 
-    public TrainingDTO(String name, String description, String type, Integer duration, String trainerUsername) {
+    public TrainingDTO(String name, String description, TrainingType type, Integer duration, String trainerUsername) {
         this.name = name;
         this.description = description;
         this.type = type;
@@ -38,11 +40,11 @@ public class TrainingDTO {
         this.description = description;
     }
 
-    public String getType() {
+    public TrainingType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TrainingType type) {
         this.type = type;
     }
 

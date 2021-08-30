@@ -13,9 +13,9 @@ public class Appointment {
     private Long id;
 
     @ManyToMany
-    List<Member> participans;
+    List<Member> participants;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Training training;
     @Column(name="training_day", unique=false, nullable=true)
     Day trainingDay;
@@ -32,13 +32,15 @@ public class Appointment {
     @OneToOne
     Hall hall;
 
+    @OneToOne
+    private Trainer trainer;
+
     //Cena
     float price;
 
 
     public Appointment() {
     }
-
 
     public Appointment(Long id, Training training, Day trainingDay, LocalTime time, int numberOfAttendees, Date date) {
         this.id = id;
@@ -49,9 +51,9 @@ public class Appointment {
         this.date = date;
     }
 
-    public Appointment(Long id, List<Member> participans, Training training, Day trainingDay, LocalTime time, int numberOfAttendees, Date date, FitnessCenter fitnessCenter, Hall hall, float price) {
+    public Appointment(Long id, List<Member> participants, Training training, Day trainingDay, LocalTime time, int numberOfAttendees, Date date, FitnessCenter fitnessCenter, Hall hall, float price) {
         this.id = id;
-        this.participans = participans;
+        this.participants = participants;
         this.training = training;
         this.trainingDay = trainingDay;
         this.time = time;
@@ -123,12 +125,12 @@ public class Appointment {
         this.date = date;
     }
 
-    public List<Member> getParticipans() {
-        return participans;
+    public List<Member> getParticipants() {
+        return participants;
     }
 
-    public void setParticipans(List<Member> participans) {
-        this.participans = participans;
+    public void setParticipants(Member member) {
+        this.participants.add(member);
     }
 
     public Training getTraining() {
@@ -161,5 +163,14 @@ public class Appointment {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
     }
 }

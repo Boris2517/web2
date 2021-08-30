@@ -13,13 +13,13 @@
 
 --FITNESS CENTRI
 INSERT INTO fitness_center (id,name, address,email,phone) VALUES (1,'Ime1','Ulica 1 Novi Sad','fitnesscentar1@mail.com','0627418529')
-INSERT INTO fitness_center (id,name, address,email,phone) VALUES (2,'Ime2','Ulica 2 Beograd','fitnesscentar2@mail.com','0631596575')
+--INSERT INTO fitness_center (id,name, address,email,phone) VALUES (2,'Ime2','Ulica 2 Beograd','fitnesscentar2@mail.com','0631596575')
 
 --SALE
-INSERT INTO hall (id,capacity,mark,fitness_center_id) VALUES (1,10,'H10',1)
-INSERT INTO hall (id,capacity,mark,fitness_center_id) VALUES (2,10,'B10',1)
-INSERT INTO hall (id,capacity,mark,fitness_center_id) VALUES (3,5,'H5',2)
-INSERT INTO hall (id,capacity,mark,fitness_center_id) VALUES (4,12,'H12',1)
+--INSERT INTO hall (id,capacity,mark,fitness_center_id) VALUES (1,10,'H10',1)
+--INSERT INTO hall (id,capacity,mark,fitness_center_id) VALUES (2,10,'B10',1)
+--INSERT INTO hall (id,capacity,mark,fitness_center_id) VALUES (3,5,'H5',2)
+--INSERT INTO hall (id,capacity,mark,fitness_center_id) VALUES (4,12,'H12',1)
 
 -- --TRENING
 -- INSERT INTO training (id, description,duration,name,type) VALUES (1,'Opis treninga 1',45,'Trening1','Individualni')

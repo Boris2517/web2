@@ -13,11 +13,11 @@ public class Hall {
     private Integer capacity;
     private String mark;
 
-    @ManyToMany
-    Set<Appointment> trainingList = new HashSet<>();
+    @ManyToMany(cascade = CascadeType.MERGE)
+    private Set<Appointment> appointmentList = new HashSet<>();
 
-    @OneToOne(cascade = CascadeType.PERSIST)
-    FitnessCenter fitnessCenter;
+    @OneToOne
+    private FitnessCenter fitnessCenter;
 
     public Hall() {
     }
@@ -28,11 +28,11 @@ public class Hall {
         this.fitnessCenter = fitnessCenter;
     }
 
-    public Hall(Long id, Integer capacity, String mark, Set<Appointment> trainingList) {
-        this.id = id;
+    public Hall(Integer capacity, String mark, Set<Appointment> appointmentList, FitnessCenter fitnessCenter) {
         this.capacity = capacity;
         this.mark = mark;
-        this.trainingList = trainingList;
+        this.appointmentList = appointmentList;
+        this.fitnessCenter = fitnessCenter;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Hall {
                 "id=" + id +
                 ", capacity=" + capacity +
                 ", mark='" + mark + '\'' +
-                ", trainingList=" + trainingList +
+                ", trainingList=" + appointmentList +
                 '}';
     }
 
@@ -70,11 +70,19 @@ public class Hall {
         this.mark = mark;
     }
 
-    public Set<Appointment> getTrainingList() {
-        return trainingList;
+    public Set<Appointment> getAppointmentList() {
+        return appointmentList;
     }
 
-    public void setTrainingList(Set<Appointment> trainingList) {
-        this.trainingList = trainingList;
+    public void setAppointmentList(Set<Appointment> appointmentList) {
+        this.appointmentList = appointmentList;
+    }
+
+    public FitnessCenter getFitnessCenter() {
+        return fitnessCenter;
+    }
+
+    public void setFitnessCenter(FitnessCenter fitnessCenter) {
+        this.fitnessCenter = fitnessCenter;
     }
 }

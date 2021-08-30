@@ -1,5 +1,6 @@
 package com.example.fitness.service.imp;
 
+import com.example.fitness.entity.DTO.TrainerUsernameDTO;
 import com.example.fitness.entity.DTO.TrainingDTO;
 import com.example.fitness.entity.DTO.TrainingNewDTO;
 import com.example.fitness.entity.Trainer;
@@ -9,6 +10,8 @@ import com.example.fitness.repository.TrainingRepository;
 import com.example.fitness.service.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 
 @Service
 public class TrainingServiceImp implements TrainingService {
@@ -43,10 +46,16 @@ public class TrainingServiceImp implements TrainingService {
     public Training updateTraining(TrainingNewDTO trainingNewDTO) throws Exception {
         Trainer trainer = this.trainerRepository.findByUsername(trainingNewDTO.getTrainerUsername());
         Training training = this.trainingRepository.findByNameAndCreator(trainingNewDTO.getName(),trainer);
-        training.setType(trainingNewDTO.getType());
+        //training.setType(trainingNewDTO.getType());
         training.setName(trainingNewDTO.getNewName());
         training.setDuration(trainingNewDTO.getDuration());
         training.setDescription(trainingNewDTO.getNewDescription());
         return this.trainingRepository.save(training);
+    }
+
+    @Override
+    public ArrayList<Training> getAllTrainings(TrainerUsernameDTO trainerUsernameDTO) {
+        Trainer trainer  = this.trainerRepository.findByUsername(trainerUsernameDTO.getUsername());
+        return this.trainingRepository.findByCreator(trainer);
     }
 }
