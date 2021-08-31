@@ -1,7 +1,14 @@
 package com.example.fitness.entity;
 
-public enum Role {
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Role implements GrantedAuthority {
     ADMIN,
     TRAINER,
-    MEMBER
+    MEMBER;
+
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }

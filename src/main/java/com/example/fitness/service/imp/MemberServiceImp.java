@@ -27,9 +27,10 @@ public class MemberServiceImp implements MemberService {
     @Override
     public void signUpForAnAppointment(AppointmentSignUpDTO appointmentSignUpDTO) throws Exception {
 
-        Optional<Appointment> appointment = this.appointmentRepository.findById(appointmentSignUpDTO.getAppointmentId());
-        Member member = this.memberRepository.findByUsername(appointmentSignUpDTO.getMemberUsername());
-        appointment.get().setParticipants(member);
-        this.appointmentRepository.save(appointment.get());
+//        Optional<Appointment> appointment = this.appointmentRepository.findById(appointmentSignUpDTO.getAppointmentId());
+//        Member member = this.memberRepository.findByUsername(appointmentSignUpDTO.getMemberUsername());
+//        appointment.get().setParticipants(member);
+//        this.appointmentRepository.save(appointment.get());
+
     }
 }
