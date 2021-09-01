@@ -2,6 +2,7 @@ package com.example.fitness.entity.UserDetails;
 
 import com.example.fitness.entity.Admin;
 import com.example.fitness.entity.Member;
+import com.example.fitness.entity.Role;
 import com.example.fitness.entity.Trainer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ public class MyUserDetails implements UserDetails {
     private String username;
     private String password;
     private Boolean active;
+    private Role role;
     private ArrayList<GrantedAuthority> authorityList = new ArrayList<>();
 
 
@@ -22,6 +24,7 @@ public class MyUserDetails implements UserDetails {
         this.username = member.getUsername();
         this.password = member.getPassword();
         this.active = member.getActive();
+        this.role = member.getRole();
         this.authorityList.add(member.getRole());
     }
 
@@ -29,6 +32,7 @@ public class MyUserDetails implements UserDetails {
         this.username = trainer.getUsername();
         this.password = trainer.getPassword();
         this.active = trainer.getActive();
+        this.role = trainer.getRole();
         this.authorityList.add(trainer.getRole());
     }
 
@@ -36,6 +40,7 @@ public class MyUserDetails implements UserDetails {
         this.username = admin.getUsername();
         this.password = admin.getPassword();
         this.active = admin.getActive();
+        this.role = admin.getRole();
         this.authorityList.add(admin.getRole());
     }
 
@@ -99,5 +104,13 @@ public class MyUserDetails implements UserDetails {
 
     public void setAuthorityList(GrantedAuthority authority) {
         this.authorityList.add(authority);
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

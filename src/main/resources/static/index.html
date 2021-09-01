@@ -3,15 +3,43 @@
     <head>
         <title>Index</title>
         <!-- <link rel="stylesheet" href="css/login.css"> -->
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/test.css">
+        <!-- <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/test.css"> -->
+        <link rel="stylesheet" href="css/index.css">
     </head>
     <body>
-       <button class="button" onclick="location.href='login.html';">Login</button>
-       <button class="button" onclick="location.href='adminpanel.html';">Login as Admin</button>
-       <button class="button" onclick="location.href='registrationUser.html';">Member registration</button>
-       <button class="button" onclick="location.href='registrationTrainer.html';">Trainer registration</button>
-       <button class="button" onclick="location.href='trainerApproval.html';">Trainer approval</button>
+        <div class="container">
+            <nav id="username">username</nav>
+
+            <div class="sidebar" id="sidebar">
+                <a class="button" onclick="location.href='login';">Login</a>
+                <a class="button" onclick="location.href='adminpanel.html';">Login as Admin</a>
+                <a class="button" onclick="location.href='registrationUser.html';">Member registration</a>
+                <a class="button" onclick="location.href='registrationTrainer.html';">Trainer registration</a>
+                <a class="button" onclick="location.href='trainerApproval.html';">Trainer approval</a>
+            </div>
+            <main class="main_section">
+                <table>
+                    <thead>
+                        <th>
+                            <td>col1</td>
+                            <td>col2</td>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </main>
+        </div>
+
+
+
     </body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/index.js"></script>
 
 </html>

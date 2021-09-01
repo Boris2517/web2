@@ -1,0 +1,51 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 0.8fr 3fr;
+    grid-template-rows: 0.2fr 4.8fr;
+    grid-template-areas: "nav nav" "sidebar main";
+    padding: 10px;
+}
+
+main{
+    grid-area: main;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background-color: burlywood;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.button{
+    width: 90%;
+    height: 40px;
+    font-size: large;
+    color: seashell;
+    text-align: center;
+    vertical-align: center;
+    line-height: 35px;
+    background-color: seagreen;
+    border: 2px solid salmon;
+}
+
+.button:hover{
+    color: seagreen;
+    background-color: seashell;
+    font-weight: bold;
+}
+
+nav{
+    grid-area: nav;
+    background-color: skyblue;
+}
