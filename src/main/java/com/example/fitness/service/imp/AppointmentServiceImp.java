@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AppointmentServiceImp implements AppointmentService {
@@ -55,5 +56,18 @@ public class AppointmentServiceImp implements AppointmentService {
         FitnessCenter fitnessCenter =  this.fitnessCenterRepository.findByName(fitnessCenterNameDTO.getName());
         ArrayList<Appointment> appointments = this.appointmentRepository.findByFitnessCenter(fitnessCenter);
         return appointments;
+    }
+
+    @Override
+    public List<Appointment> getAllAppointments() {
+        List<Appointment> appointments = this.appointmentRepository.findAll();
+
+        return appointments;
+    }
+
+    @Override
+    public List<Appointment> getMemberAppointments(String username) {
+        //List<Appointment> appointments = this.appointmentRepository.
+        return null;
     }
 }

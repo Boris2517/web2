@@ -16,7 +16,7 @@ function getLogedUser(){
         dataType: "json",                                           // tip povratne vrednosti
         success: function (response) {                              // ova f-ja se izvršava posle uspešnog zahteva
             console.log("SUCCESS:\n", response);
-            usernameObj.innerHTML = response.username;                 // ispisujemo u konzoli povratnu vrednost radi provere
+            usernameObj.innerHTML += " " + response.username;                 // ispisujemo u konzoli povratnu vrednost radi provere
             console.log(response.username);
             instantiateButtons(response);
             
@@ -35,8 +35,8 @@ function instantiateButtons(response){
     if(response.role == "MEMBER"){
         sidebar.innerHTML = "";
         createButton("Logout", "/logout", sidebar);
-        createButton("Profile", "/profile.html", sidebar);
-        createButton("Appointments", "/appointments.html", sidebar);
+        createButton("Profile", "/memberprofile.html", sidebar);
+        createButton("Appointments", "/memberappointments.html", sidebar);
     }else if(response.role == "TRAINER"){
         sidebar.innerHTML = "";
         createButton("Logout", "/logout", sidebar);
@@ -55,7 +55,11 @@ function instantiateButtons(response){
         buttons += "<a href=\"appointments\">Create new appointment</a>";
         buttons += "<a href=\"appointments\">Create new training</a>";
     }else{
-        buttons += "<a href=\"login\">Login</a>";
+        sidebar.innerHTML = "";
+        createButton("Login", "/login", sidebar);
+        createButton("Register as member", "/registrationUser.html", sidebar);
+        createButton("Register as trainer", "/registrationTrainer.html", sidebar);
+        createButton("Appointments", "/appointments", sidebar);
     }
 
     

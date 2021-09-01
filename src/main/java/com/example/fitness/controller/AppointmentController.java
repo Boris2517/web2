@@ -3,13 +3,16 @@ package com.example.fitness.controller;
 import com.example.fitness.entity.Appointment;
 import com.example.fitness.entity.DTO.AppointmentDTO;
 import com.example.fitness.entity.DTO.FitnessCenterNameDTO;
+import com.example.fitness.entity.UserDetails.MyUserDetails;
 import com.example.fitness.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/appointment")
@@ -57,4 +60,34 @@ public class AppointmentController {
 
         return new ResponseEntity<>(appointmentDTOS, HttpStatus.ACCEPTED);
     }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/all")
+    public ResponseEntity<ArrayList<AppointmentDTO>> getAllAppointments(){
+        List<Appointment> appointments = this.appointmentService.getAllAppointments();
+        ArrayList<AppointmentDTO> appointmentDTOS = new ArrayList<>();
+        for (Appointment appointment: appointments) {
+            AppointmentDTO appointmentDTO = new AppointmentDTO();
+            appointmentDTO.setId(appointment.getId());
+            appointmentDTO.setHall(appointment.getHall().getMark());
+            appointmentDTO.setDate(appointment.getDate());
+            appointmentDTO.setTrainingName(appointment.getTraining().getName());
+            appointmentDTO.setPrice(appointment.getPrice());
+            appointmentDTO.setTrainerUsername(appointment.getTrainer().getUsername());
+            appointmentDTO.setNumberOfAttendees(appointment.getNumberOfAttendees());
+            appointmentDTO.setFintessCenter(appointment.getFitnessCenter().getName());
+            appointmentDTOS.add(appointmentDTO);
+        }
+
+        return new ResponseEntity<>(appointmentDTOS, HttpStatus.ACCEPTED);
+
+    }
+
+//    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/user")
+//    public ResponseEntity<ArrayList<AppointmentDTO>> getMemberAppointments(@AuthenticationPrincipal MyUserDetails userDetails){
+//
+//        List<Appointment> appointments = this.appointmentService.getMemberAppointments(userDetails.getUsername());
+//
+//    }
+
+
 }

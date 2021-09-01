@@ -2,10 +2,11 @@ package com.example.fitness.controller;
 
 import com.example.fitness.entity.DTO.UserDTO;
 import com.example.fitness.entity.DTO.UsernameAndRoleDTO;
-import com.example.fitness.entity.DTO.UsernameDTO;
 import com.example.fitness.entity.Member;
-import com.example.fitness.entity.User;
+import com.example.fitness.entity.Role;
+import com.example.fitness.entity.Trainer;
 import com.example.fitness.entity.UserDetails.MyUserDetails;
+import com.example.fitness.service.MemberService;
 import com.example.fitness.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(value="/user")
 public class UserController {
@@ -26,10 +29,12 @@ public class UserController {
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
+    private final MemberService memberService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, MemberService memberService) {
         this.userService = userService;
+        this.memberService = memberService;
     }
 
     //Registracija novog clana
@@ -62,6 +67,29 @@ public class UserController {
         return new ResponseEntity<>(usernameAndRoleDTO, HttpStatus.ACCEPTED);
     }
 
+    @GetMapping(value = "profile", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserDTO> getUser(@AuthenticationPrincipal MyUserDetails userDetails){
+
+
+        if(userDetails.getRole() == Role.MEMBER){
+            Optional<Member> member = this.memberService.getMemberByUsername(userDetails.getUsername());
+            UserDTO userDTO = new UserDTO();
+            userDTO.setName(member.get().getName());
+            userDTO.setSurname(member.get().getSurname());
+            userDTO.setUsername(member.get().getUsername());
+            userDTO.setPhone(member.get().getPhone());
+            userDTO.setEmail(member.get().getEmail());
+            userDTO.setBirthdate(member.get().getBirthdate());
+            userDTO.setPassword(member.get().getPassword());
+            return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
+        }else if(userDetails.getRole() == Role.TRAINER) {
+
+
+
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
+    }
 
 
 }

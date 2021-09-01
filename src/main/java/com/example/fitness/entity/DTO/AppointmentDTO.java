@@ -30,11 +30,14 @@ public class AppointmentDTO {
 
     float price;
 
+    String fintessCenter;
+
 
     public AppointmentDTO() {
     }
 
-    public AppointmentDTO(String trainerUsername, String trainingName, Day trainingDay, LocalTime time, Date date, String hall, int numberOfAttendees, float price) {
+    public AppointmentDTO(Long id, String trainerUsername, String trainingName, Day trainingDay, LocalTime time, Date date, String hall, int numberOfAttendees, float price, String fintessCenter) {
+        this.id = id;
         this.trainerUsername = trainerUsername;
         this.trainingName = trainingName;
         this.trainingDay = trainingDay;
@@ -43,6 +46,7 @@ public class AppointmentDTO {
         this.hall = hall;
         this.numberOfAttendees = numberOfAttendees;
         this.price = price;
+        this.fintessCenter = fintessCenter;
     }
 
     public String getTrainerUsername() {
@@ -115,5 +119,13 @@ public class AppointmentDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getFintessCenter() {
+        return fintessCenter;
+    }
+
+    public void setFintessCenter(String fintessCenter) {
+        this.fintessCenter = fintessCenter;
     }
 }

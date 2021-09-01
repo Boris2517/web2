@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+</head>
+<body>
+    <a title="home" href="/index.html" >Home</a>
+    <div class="info">
+        <div><label>Name:</label><label id="name">Name</label></div>
+        <div><label>Surname:</label><label id="surname">Surname</label></div>
+        <div><label>Username:</label><label id="username">Username</label></div>
+        <div><label>Password:</label><label id="password">Password</label></div>
+        <div><label>Email:</label><label id="email">Email</label></div>
+        <div><label>Phone:</label><label id="phone">Phone</label></div>
+        <div><lable>Birthday:</lable><lable id="birthday">Birthday</lable></div>
+    </div>
+
+    <div>
+        <h3>Update info</h3>
+        <form id="update_form">
+            <label>Name:</label>
+            <input id="name_input" type="text">
+            <label>Surname:</label>
+            <input id="surname_input" type="text">
+            <label>Email:</label>
+            <input id="email_input" type="email">
+            <label>Phone:</label>
+            <input id="phone_input" type="text">
+            <label>Birhtday:</label>
+            <input id="date_input" type="date">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/memberprofile.js"></script>
+</html>
