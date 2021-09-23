@@ -2,6 +2,7 @@ package com.example.fitness.entity.DTO;
 
 public class FitnessCenterDTO {
 
+    private Long id;
     private String name;
     private String address;
     private String phone;
@@ -9,12 +10,32 @@ public class FitnessCenterDTO {
 
     public FitnessCenterDTO() {
     }
+    public FitnessCenterDTO(Long id) {
+
+      this.id =id;
+    }
 
     public FitnessCenterDTO(String name, String address, String phone, String email) {
+
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
+    }
+    public FitnessCenterDTO(Long id, String name, String address, String phone, String email) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

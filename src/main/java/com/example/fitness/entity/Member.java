@@ -19,11 +19,11 @@ public class Member extends User{
 //
 //
 //    //Lista treninga za koje su se prijavili ali ih nisu odradili
-    @ManyToMany
-    @JoinTable(name = "NEODRADJENI",
-            joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "appointment_id", referencedColumnName = "id"))
-    Set<Appointment> futureTrainings = new HashSet<>();
+//    @ManyToMany
+//    @JoinTable(name = "NEODRADJENI",
+//            joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "appointment_id", referencedColumnName = "id"))
+//    Set<Appointment> futureTrainings = new HashSet<>();
 
 //    //Lista ocena za odredjene treninge
 //    @ManyToMany
@@ -43,11 +43,11 @@ public class Member extends User{
         super();
     }
 
-    public Set<Appointment> getFutureTrainings() {
-        return futureTrainings;
-    }
-
-    public void setFutureTrainings(Appointment futureTraining) {
-        this.futureTrainings.add(futureTraining);
-    }
+//    public Set<Appointment> getFutureTrainings() {
+//        return futureTrainings;
+//    }
+//
+//    public void setFutureTrainings(Appointment futureTraining) {
+//        this.futureTrainings.add(futureTraining);
+//    }
 }

@@ -37,7 +37,7 @@ public class AdminController {
 
         FitnessCenter newCenter = adminService.addFitnessCenter(center);
 
-        FitnessCenterDTO newCenterDTO = new FitnessCenterDTO(newCenter.getName(), newCenter.getAddress(), newCenter.getPhone(), newCenter.getEmail());
+        FitnessCenterDTO newCenterDTO = new FitnessCenterDTO( newCenter.getName(), newCenter.getAddress(), newCenter.getPhone(), newCenter.getEmail());
 
         return new ResponseEntity<>(newCenterDTO, HttpStatus.CREATED);
     }
@@ -56,14 +56,22 @@ public class AdminController {
     }
 
 
-    @DeleteMapping(value = "/center/{name}")
-    public ResponseEntity<Void> removeFitnessCenter(@PathVariable String name) throws Exception {
-        FitnessCenterNameDTO fitnessCenterNameDTO = new FitnessCenterNameDTO(name);
+    @DeleteMapping(value = "/center/{id}")
+    public ResponseEntity<Void> removeFitnessCenter(@PathVariable Long id) throws Exception {
+        FitnessCenterDTO fitnessCenterDTO = new FitnessCenterDTO(id);
 
-        this.fitnessCenterService.removeFitnessCenter(fitnessCenterNameDTO);
+        this.fitnessCenterService.removeFitnessCenter(fitnessCenterDTO);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value="/center/{id}")
+    public ResponseEntity<FitnessCenter> getCenterById(@PathVariable Long id){
+        FitnessCenter fitnessCenter = this.fitnessCenterService.getCenterById(id);
+
+        return new ResponseEntity<>(fitnessCenter, HttpStatus.ACCEPTED);
+    }
+
 
 
 //    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, value = "/center")

@@ -2,39 +2,117 @@
 <html>
     <head>
         <title>Index</title>
-        <!-- <link rel="stylesheet" href="css/login.css"> -->
-        <!-- <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/test.css"> -->
         <link rel="stylesheet" href="css/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
-            <nav id="username">User: </nav>
-
-            <div class="sidebar" id="sidebar">
-                <a class="button" onclick="location.href='login';">Login</a>
-                <a class="button" onclick="location.href='adminpanel.html';">Login as Admin</a>
-                <a class="button" onclick="location.href='registrationUser.html';">Member registration</a>
-                <a class="button" onclick="location.href='registrationTrainer.html';">Trainer registration</a>
-                <a class="button" onclick="location.href='trainerApproval.html';">Trainer approval</a>
+        <Header>
+            <a href="login.html">Login</a>
+            <a href="registrationUser.html">Register as Member</a>
+            <a href="registrationTrainer.html">Register as Trainer</a>
+        </Header>
+        <main>
+            <div class="search-container">
+                <div class="name">
+                    <input type="search" placeholder="Name">
+                </div>
+                <div class="type">
+                    <select name="types" id="types">
+                        <option value="powerlifting">Powerlifting</option>
+                        <option value="bodybuilding">Bodybuilding</option>
+                    </select>
+                </div>
+                <div class="price">
+                    <input type="text" placeholder="Price(RSD)">
+                </div>
+                <div class="time">
+                    <select name="hour" id="hour">
+                        <option value="#">#</option>
+                        <option value="0">0</option>
+                        <option value="0">1</option>
+                        <option value="0">2</option>
+                        <option value="0">3</option>
+                        <option value="0">4</option>
+                        <option value="0">5</option>
+                        <option value="0">6</option>
+                        <option value="0">7</option>
+                        <option value="0">8</option>
+                        <option value="0">9</option>
+                        <option value="0">10</option>
+                        <option value="0">11</option>
+                        <option value="0">12</option>
+                        <option value="0">13</option>
+                        <option value="0">14</option>
+                        <option value="0">15</option>
+                        <option value="0">16</option>
+                        <option value="0">17</option>
+                        <option value="0">18</option>
+                        <option value="0">19</option>
+                        <option value="0">20</option>
+                        <option value="0">21</option>
+                        <option value="0">22</option>
+                        <option value="0">23</option>
+                    </select>
+                </div>
             </div>
-            <main class="main_section">
-                <table>
+            <div class="table">
+                <table id="appoint-table" cellspacing="0" cellpadding="0">
                     <thead>
-                        <th>
-                            <td>col1</td>
-                            <td>col2</td>
-                        </th>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Fitness Center</th>
+                        <th>Price</th>
+                        <th>Time</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                        </tr>
+                      <tr>
+                          <td>1</td>
+                          <td>Ime 2</td>
+                          <td>Bodybuilding</td>
+                          <td>Centar 1</td>
+                          <td>300 rsd</td>
+                          <td>12:30</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Ime 2</td>
+                        <td>Bodybuilding</td>
+                        <td>Centar 1</td>
+                        <td>300 rsd</td>
+                        <td>12:30</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Ime 2</td>
+                        <td>Bodybuilding</td>
+                        <td>Centar 1</td>
+                        <td>300 rsd</td>
+                        <td>12:30</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Ime 2</td>
+                        <td>Bodybuilding</td>
+                        <td>Centar 1</td>
+                        <td>300 rsd</td>
+                        <td>12:30</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Ime 2</td>
+                        <td>Bodybuilding</td>
+                        <td>Centar 1</td>
+                        <td>300 rsd</td>
+                        <td>12:30</td>
+                    </tr>
                     </tbody>
                 </table>
-            </main>
-        </div>
+            </div>
 
+        </main>
 
 
     </body>

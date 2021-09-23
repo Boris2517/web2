@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface FitnessCenterService{
 
-    void removeFitnessCenter(FitnessCenterNameDTO fitnessCenterNameDTO) throws Exception;
+    void removeFitnessCenter(FitnessCenterDTO fitnessCenterDTO) throws Exception;
     FitnessCenter updateFitnessCenter(FitnessCenterNewDTO fitnessCenterNewDTO) throws Exception;
+    FitnessCenter getCenterById(Long id);
     List<FitnessCenterDTO> getAll();
 
     //--------------------HALLS--------------------

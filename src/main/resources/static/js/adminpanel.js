@@ -9,6 +9,7 @@ $(document).ready(function () {
         $(content).show();
         $(content).siblings('.section').hide();
     });
+    
     updateTrainers();
 });
 

@@ -45,6 +45,9 @@ public class RegistrationController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, value = "/trainer")
     public ResponseEntity<UserDTO> registerTrainer(@RequestBody UserDTO userDTO){
 
+        System.out.println("Trainer Reg Controller");
+        System.out.println(userDTO.getUsername());
+
         Trainer newTrainer = this.registrationServiceImp.registerTrainer(userDTO);
         UserDTO newUserDTO = new UserDTO();
         newUserDTO.setEmail(newTrainer.getEmail());

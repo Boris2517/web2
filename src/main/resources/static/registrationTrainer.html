@@ -5,39 +5,23 @@
         <link rel="stylesheet" href="css/registrationTrainer.css">
     </head>
     <body>
-        <div></div>
-            <form class="form">
-                <label class="lable" >Trainer registration</label><br>
-                <label class="lable" >username:</label>
-                <br>
-                <input class="input" type="text">
-                <br>
-                <label class="lable">password:</label>
-                <br>
-                <input class="input" type="password"><br>
-                <label class="lable">name:</label>
-                <br>
-                <input class="input" type="text">
-                <br>
-                <label class="lable">surname:</label>
-                <br>
-                <input class="input" type="text">
-                <br>
-                <label class="lable">phone number:</label>
-                <br>
-                <input class="input" type="text">
-                <br>
-                <label class="lable">e-mail:</label>
-                <br>
-                <input class="input" type="email">
-                <br>
-                <label class="lable">birthdate:</label>
-                <br>
-                <input class="input" type="date">
-                <br>
-                <button class="button">Register</button>
+        <div class="container">
+            <form class="form" id="regtrainer">
+                <h3>Trainer registration</h3>
+                <input id="trainerFirstName" class="input" placeholder="First Name" type="text">
+                <input id="trainerLastName" class="input" placeholder="Last Name" type="text">
+                <input id="trainerUsername" class="input" placeholder="Username" type="text">
+                <input id="trainerPassword" class="input" placeholder="Password" type="password">
+                <input id="trainerEmail" class="input" placeholder="Email" type="email">
+                <input id="trainerPhone" class="input" placeholder="Phone" type="text">
+                <input id="trainerDate" class="input" placeholder="Date" type="date">
+                <button class="button" type="submit">Register</button>
             </form>
         </div>
     </body>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js" ></script>
+    <script src="js/regtrainer.js"></script>
 
 </html>

@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 
 function deleteFitnessCenter(e){
-    const name = $(e).closest('tr').attr('id');
+    const id = $(e).closest('tr').attr('id');
     console.log(name);
     
 
@@ -13,7 +13,7 @@ function deleteFitnessCenter(e){
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         type: "DELETE",                                                     // HTTP metoda je POST
-        url: "http://localhost:8081/api/admin/center/" + name,                 // URL na koji se šalju podaci
+        url: "http://localhost:8081/api/admin/center/" + id,                 // URL na koji se šalju podaci
         dataType: "json",                                                // tip povratne vrednosti
                                                                   // tip podataka koje šaljemo
                                // u body-ju šaljemo novog zaposlenog (JSON.stringify() pretvara JavaScript objekat u JSON)
@@ -44,7 +44,7 @@ function updateCenters(){
             console.log("SUCCESS:\n", response);                    // ispisujemo u konzoli povratnu vrednost radi provere
 
             for (let fitness of response) {                        // prolazimo kroz listu svih zaposlenih
-                let row = "<tr " + "id=" + fitness.name + " >";                                   // kreiramo red za tabelu
+                let row = "<tr " + "id=" + fitness.id + " >";                                   // kreiramo red za tabelu
                 row += "<td>" + fitness.name + "</td>";       // ubacujemo podatke jednog zaposlenog u polja
                 row += "<td>" + fitness.address + "</td>";
                 row += "<td>" + fitness.email + "</td>";
@@ -54,6 +54,8 @@ function updateCenters(){
                 row += "</tr>";
                 
                 $('#halls').append($('<option>', {value:fitness.name, text:fitness.name}));
+                $('#centers-selector').append($('<option>', {value:fitness.id, text:fitness.name}));
+                $("#centers-selector").prop("selectedIndex", -1);
                 $('#fitness_table').append(row);                      // ubacujemo kreirani red u tabelu čiji je id = employees
             }
         },

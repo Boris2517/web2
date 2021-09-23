@@ -142,6 +142,7 @@
 
 
 
+
 <!-- 
                     private Integer capacity;
                     private String mark;
@@ -159,6 +160,63 @@
                     </form> -->
                 </div>
             </section>
+
+            <section id="section_updateTrainer" class="section">
+                <div>
+                    <div>Update trainer</div>
+                    <!-- <form id="addCenterForm">
+                        <label>Name</label>
+                        <input type="text" id="centerName">
+                        <label>Address</label>
+                        <input type="text" id="centerAddress">
+                        <label>Phone</label>
+                        <input type="text" id="centerPhone">
+                        <label>Email</label>
+                        <input type= "email" id="centerEmail">
+                        <button type="submit" >Submit</button>
+                    </form> -->
+                </div>
+            </section>
+
+            <section id="section_updateCenter" class="section">
+                <div class="form-container">
+                    <div class="center-select">
+                        <label for="halls">Choose Fitness Center:</label>
+                        <select name="centers" id="centers-selector" >
+                    </div>
+
+                    <form id="updateCenterForm" class="updateCenterForm">
+                        <br>
+                        <label>Name</label>
+                        <input type="text" id="centerName">
+                        <label>Address</label>
+                        <input type="text" id="centerAddress">
+                        <label>Phone</label>
+                        <input type="text" id="centerPhone">
+                        <label>Email</label>
+                        <input type= "email" id="centerEmail">
+                        <button type="submit" >Submit</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="section_updateHall" class="section">
+                <div>
+                    <div>Update hall</div>
+                    <!-- <form id="addCenterForm">
+                        <label>Name</label>
+                        <input type="text" id="centerName">
+                        <label>Address</label>
+                        <input type="text" id="centerAddress">
+                        <label>Phone</label>
+                        <input type="text" id="centerPhone">
+                        <label>Email</label>
+                        <input type= "email" id="centerEmail">
+                        <button type="submit" >Submit</button>
+                    </form> -->
+                </div>
+            </section>
+
         </main>
         <div class="sidebar">
             <ul class="sidebar__list">
@@ -167,6 +225,9 @@
                 <li  class="list__item"><a href="#section_addTrainer">Add trainer</a></li>
                 <li  class="list__item"><a href="#section_addCenter">Add center</a></li>
                 <li  class="list__item"><a href="#section_addHall">Add hall</a></li>
+                <li  class="list__item"><a href="#section_updateTrainer">Update trainer</a></li>
+                <li  class="list__item"><a href="#section_updateCenter">Update center</a></li>
+                <li  class="list__item"><a href="#section_updateHall">Update hall</a></li>
             </ul>
         </div>
         <div class="add" ><a href="#">Add new Fitness Centers</a></div>
@@ -187,6 +248,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <!--    <script src="../static/js/jquery-3.6.0.min"></script>-->
+    <script src="js/updateCenter.js"></script>
     <script src="js/adminpanel.js"></script>
     <script src="js/fitnessCenter.js"></script>
     <script src="js/trainers.js"></script>

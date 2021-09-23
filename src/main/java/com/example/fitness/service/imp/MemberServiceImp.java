@@ -66,9 +66,9 @@ public class MemberServiceImp implements MemberService {
         Optional<Member> member = this.memberRepository.findByUsername(username);
         List<Appointment> appointments = new ArrayList<>();
 
-        for (Appointment app: member.get().getFutureTrainings()) {
-            appointments.add(app);
-        }
+//        for (Appointment app: member.get().getFutureTrainings()) {
+//            appointments.add(app);
+//        }
 
         return appointments;
     }

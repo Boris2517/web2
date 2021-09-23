@@ -1,77 +1,71 @@
-* {
+*{
     margin: 0;
     padding: 0;
-    
-    }
-    body{
-        background-color: #222831;
-    }
-    
-    input{
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 25px;
-        color:#222831;
-        font-weight: bolder;
-    }
-    
-    
-    
-    #border{
-        border-radius: 25px;
-        width:450px;
-        height: 95vw;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        /* bring your own prefixes */
-        transform: translate(-50%, -50%);
-        background-image: linear-gradient(to bottom right,#393e46,#696c72,#393e46);
-        box-shadow: 2px 2px #64686e;
-    }
-    
-    .form{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        /* bring your own prefixes */
-        transform: translate(-50%, -50%);
-    }
-    
-    .lable{
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 25px;
-        color:#eeeeee;
-    }
-    
-    
-    .input{
-        margin: 10px 0px;
-        border-radius: 10px;
-        height: 50px;
-        width: 300px;
-    
-    }
-    
-    .button{
-        margin-top: 35px;
-        border-radius: 10px;
-        height: 55px;
-        width: 300px;
-        font-size: 25px;
-        text-align: center;
-        cursor: pointer;
-        outline: none;
-        color: #000000;
-        background-color: #eeeeee;
-        border: none;
-        font-weight: bold;
-        color:222831;
-        box-shadow: 2px 2px #46494e;
-     
-    }
-    
-    .button:hover{
-        background-color: #222831;
-        color:#eeeeee;
-        font-weight: bold;
-    }
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color:coral;
+    height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    border: 3px solid whitesmoke;
+    border-radius: 10px;
+    padding: 50px 70px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    gap:20px;
+}
+form h3{
+    text-align: center;
+    color: whitesmoke;
+    font-size: 30px;
+}
+
+form input{
+    height: 45px;
+    width: 300px;
+    border-radius: 5px;
+    border:none;
+    line-height: 45px;
+    font-size: 20px;
+    color: coral
+}
+
+
+input:placeholder-shown{
+    padding-left:5px;
+    color:rgb(255, 68, 0);
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+    color: coral;
+}
+input::placeholder{
+    color:coral;
+}
+button{
+    height: 45px;
+    border:none;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    font-size: 16px;
+    font-weight: 700;
+    color: coral;
+}
+button:hover{
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}

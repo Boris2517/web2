@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FitnessCenterImp implements FitnessCenterService {
@@ -26,9 +27,8 @@ public class FitnessCenterImp implements FitnessCenterService {
     }
 
     @Override
-    public void removeFitnessCenter(FitnessCenterNameDTO fitnessCenterNameDTO) throws Exception {
-        FitnessCenter fc = this.fitnessCenterRepository.findByName(fitnessCenterNameDTO.getName());
-        this.fitnessCenterRepository.deleteById(fc.getId());
+    public void removeFitnessCenter(FitnessCenterDTO fitnessCenterDTO) throws Exception {
+        this.fitnessCenterRepository.deleteById(fitnessCenterDTO.getId());
     }
 
     @Override
@@ -43,11 +43,19 @@ public class FitnessCenterImp implements FitnessCenterService {
     }
 
     @Override
+    public FitnessCenter getCenterById(Long id) {
+        Optional<FitnessCenter> fitnessCenter = this.fitnessCenterRepository.findById(id);
+        System.out.println(fitnessCenter.get().getId());
+        return fitnessCenter.get();
+    }
+
+    @Override
     public List<FitnessCenterDTO> getAll() {
         List<FitnessCenter> fitnessCenterList = this.fitnessCenterRepository.findAll();
         List<FitnessCenterDTO> fitnessCenterDTOList = new ArrayList<>();
         for (FitnessCenter center : fitnessCenterList) {
             FitnessCenterDTO ft = new FitnessCenterDTO();
+            ft.setId(center.getId());
             ft.setName(center.getName());
             ft.setEmail(center.getEmail());
             ft.setAddress(center.getAddress());

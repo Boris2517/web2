@@ -246,8 +246,8 @@ public class DemoData {
         member1.setEmail("pericic@gmail.com");
         member1.setPhone("062191468155");
         member1.setBirthdate(memDate1);
-        member1.setFutureTrainings(appointment1);
-        member1.setFutureTrainings(appointment2);
+//        member1.setFutureTrainings(appointment1);
+//        member1.setFutureTrainings(appointment2);
 
 
 

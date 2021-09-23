@@ -44,6 +44,10 @@ public class RegistrationServiceImp implements RegistrationService {
 
   @Override
   public Trainer registerTrainer(UserDTO userDTO) {
+
+    System.out.println("Trainer Reg Service");
+    System.out.println(userDTO.getUsername());
+
     Trainer newTrainer = new Trainer();
     newTrainer.setName(userDTO.getName());
     newTrainer.setSurname(userDTO.getSurname());

@@ -26,7 +26,7 @@ public class Appointment {
     @Column(name="date", unique=false, nullable=true)
     Date date;
     //Fintes centar
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     FitnessCenter fitnessCenter;
 
     @OneToOne

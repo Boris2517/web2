@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 @Repository
 public interface FitnessCenterRepository extends JpaRepository<FitnessCenter, Long> {
 
-    //@Transactional
+
     FitnessCenter findByName(String fitnessCenterName);
     FitnessCenter findByTrainers(Trainer trainer);
 }
