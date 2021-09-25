@@ -5,8 +5,10 @@ import com.example.fitness.entity.DTO.TrainingDTO;
 import com.example.fitness.entity.DTO.TrainingNewDTO;
 import com.example.fitness.entity.Trainer;
 import com.example.fitness.entity.Training;
+import com.example.fitness.entity.TrainingType;
 import com.example.fitness.repository.TrainerRepository;
 import com.example.fitness.repository.TrainingRepository;
+import com.example.fitness.repository.TrainingTypeRepository;
 import com.example.fitness.service.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +20,13 @@ public class TrainingServiceImp implements TrainingService {
 
     private final TrainerRepository trainerRepository;
     private final TrainingRepository trainingRepository;
+    private final TrainingTypeRepository trainingTypeRepository;
 
     @Autowired
-    public TrainingServiceImp(TrainingRepository trainingRepository, TrainerRepository trainerRepository){
+    public TrainingServiceImp(TrainingRepository trainingRepository, TrainerRepository trainerRepository, TrainingTypeRepository trainingTypeRepository){
         this.trainingRepository = trainingRepository;
         this.trainerRepository = trainerRepository;
+        this.trainingTypeRepository = trainingTypeRepository;
     }
 
 
@@ -57,5 +61,11 @@ public class TrainingServiceImp implements TrainingService {
     public ArrayList<Training> getAllTrainings(TrainerUsernameDTO trainerUsernameDTO) {
         Trainer trainer  = this.trainerRepository.findByUsername(trainerUsernameDTO.getUsername());
         return this.trainingRepository.findByCreator(trainer);
+    }
+
+    @Override
+    public ArrayList<TrainingType> getAllTrainingTypes() {
+        ArrayList<TrainingType> trainingTypes = (ArrayList<TrainingType>) this.trainingTypeRepository.findAll();
+        return trainingTypes;
     }
 }

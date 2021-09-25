@@ -66,4 +66,10 @@ public class MemberController {
         return new ResponseEntity<>(appointments1, HttpStatus.ACCEPTED);
     }
 
+//    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Appointment> applyForAppointment(@AuthenticationPrincipal MyUserDetails userDetails,  @RequestBody AppointmentDTO appointmentDTO){
+//        Appointment appointment = this.memberService.
+//    }
+
+
 }

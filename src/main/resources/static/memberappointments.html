@@ -2,20 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/memberappointments.css">
     <title>Appointments</title>
 </head>
 <body>
     <h2>All Appointments</h2>
-    <div>
-        <table id="appointments_table">
+    <div class=table>
+        <table  id="appointments_table">
             <thead>
                 <tr>
-                    <th>Fitness Center</th>
-                    <th>Training name</th>
-                    <th>Trainer</th>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Fitness</th>
                     <th>Hall</th>
+                    <th>Time</th>
+                    <th>Number of attendees</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Trening</td>
+                    <td>STRENGHT</td>
+                    <td>Strong One</td>
+                    <td>H2</td>
+                    <td>13:30</td>
+                    <td>35/45</td>
+                    <td>350</td>
+                    <td><a class="btn-table" href="#" onclick="applyForTraining(e)">Apply</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <h2>Member Appointments</h2>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Fitness</th>
+                    <th>Hall</th>
+                    <th>Time</th>
                     <th>Number of attendees</th>
                     <th>Price</th>
                     <th></th>
@@ -24,13 +58,7 @@
             <tbody>
 
             </tbody>
-        </table>
-    </div>
-    <h2>Member Appointments</h2>
-    <div>
-        <table>
-
-        </table>
+        </table> -->
     </div>
 
 

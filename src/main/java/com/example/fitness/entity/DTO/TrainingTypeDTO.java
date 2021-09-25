@@ -1,10 +1,10 @@
-package com.example.fitness.entity;
+package com.example.fitness.entity.DTO;
 
-public class TreningTypeDTO {
+public class TrainingTypeDTO {
 
     private String name;
 
-    public TreningTypeDTO(String name) {
+    public TrainingTypeDTO(String name) {
         this.name = name;
     }
 

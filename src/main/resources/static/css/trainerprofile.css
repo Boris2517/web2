@@ -47,4 +47,11 @@ table tbody tr:nth-of-type(odd){
     border-radius: 10px;
     color: whitesmoke;
 }
-
+.appoint-form{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    gap: 20px;
+}

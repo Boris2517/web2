@@ -20,7 +20,7 @@ public class FitnessCenter {
     private Set<Hall> halls = new HashSet<>();
 
     //Raspored odrzavanja treninga zajedno sa cenama za svaki termin posebno
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Appointment> appointments = new HashSet<>();
 
 

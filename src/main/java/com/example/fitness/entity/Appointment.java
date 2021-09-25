@@ -1,5 +1,7 @@
 package com.example.fitness.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.Date;
@@ -13,36 +15,36 @@ public class Appointment {
     private Long id;
 
     @ManyToMany
-    List<Member> participants;
+    private List<Member> participants;
 
     @OneToOne(cascade = CascadeType.ALL)
-    Training training;
+    private Training training;
     @Column(name="training_day", unique=false, nullable=true)
-    Day trainingDay;
-    @Column(name="time", unique=false, nullable=true)
-    LocalTime time;
+    private Day trainingDay;
+    @OneToOne
+    private MyTime time;
     @Column(name="num_of_attendees", unique=false, nullable=true)
-    int numberOfAttendees;
-    @Column(name="date", unique=false, nullable=true)
-    Date date;
-    //Fintes centar
-    @OneToOne(cascade = {CascadeType.ALL})
-    FitnessCenter fitnessCenter;
+    private int numberOfAttendees;
+    @OneToOne
+    private MyDate date;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private FitnessCenter fitnessCenter;
 
     @OneToOne
-    Hall hall;
+    private Hall hall;
 
     @OneToOne
     private Trainer trainer;
 
     //Cena
-    float price;
+    private float price;
 
 
     public Appointment() {
     }
 
-    public Appointment(Long id, Training training, Day trainingDay, LocalTime time, int numberOfAttendees, Date date) {
+    public Appointment(Long id, Training training, Day trainingDay, MyTime time, int numberOfAttendees, MyDate date) {
         this.id = id;
         this.training = training;
         this.trainingDay = trainingDay;
@@ -51,7 +53,7 @@ public class Appointment {
         this.date = date;
     }
 
-    public Appointment(Long id, List<Member> participants, Training training, Day trainingDay, LocalTime time, int numberOfAttendees, Date date, FitnessCenter fitnessCenter, Hall hall, float price) {
+    public Appointment(Long id, List<Member> participants, Training training, Day trainingDay, MyTime time, int numberOfAttendees, MyDate date, FitnessCenter fitnessCenter, Hall hall, float price) {
         this.id = id;
         this.participants = participants;
         this.training = training;
@@ -101,11 +103,11 @@ public class Appointment {
         this.trainingDay = trainingDay;
     }
 
-    public LocalTime getTime() {
+    public MyTime getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(MyTime time) {
         this.time = time;
     }
 
@@ -117,11 +119,11 @@ public class Appointment {
         this.numberOfAttendees = numberOfAttendees;
     }
 
-    public Date getDate() {
+    public MyDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(MyDate date) {
         this.date = date;
     }
 

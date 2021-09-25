@@ -3,7 +3,9 @@ package com.example.fitness.controller;
 import com.example.fitness.entity.DTO.TrainerUsernameDTO;
 import com.example.fitness.entity.DTO.TrainingDTO;
 import com.example.fitness.entity.DTO.TrainingNewDTO;
+import com.example.fitness.entity.DTO.TrainingTypeDTO;
 import com.example.fitness.entity.Training;
+import com.example.fitness.entity.TrainingType;
 import com.example.fitness.service.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 @RestController
@@ -71,6 +72,18 @@ public class TrainingController {
             allTrainingsDTO.add(trainingDTO);
         }
         return new ResponseEntity<>(allTrainingsDTO, HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/types")
+    public ResponseEntity<ArrayList<TrainingTypeDTO>> getAllTrainingTypes(){
+        ArrayList<TrainingType> trainings = this.trainingService.getAllTrainingTypes();
+        ArrayList<TrainingTypeDTO> trainingTypeDTOS = new ArrayList<>();
+        for (TrainingType trainingType: trainings) {
+            TrainingTypeDTO trainingType1 = new TrainingTypeDTO(trainingType.getName());
+            trainingTypeDTOS.add(trainingType1);
+        }
+
+        return new ResponseEntity<>(trainingTypeDTOS, HttpStatus.ACCEPTED);
     }
 
 }

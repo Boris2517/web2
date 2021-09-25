@@ -50,7 +50,7 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
         }
 
             if(hasUserRole){
-                redirectStrategy.sendRedirect(httpServletRequest, httpServletResponse, "/index");
+                redirectStrategy.sendRedirect(httpServletRequest, httpServletResponse, "/memberprofile.html");
             } else if(hasTrainerRole) {
                 redirectStrategy.sendRedirect(httpServletRequest,httpServletResponse ,"/");
             } else if(hasAdminRole) {

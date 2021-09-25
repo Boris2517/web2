@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -29,14 +31,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/console/**").permitAll();
+
         http.authorizeRequests()
+                .antMatchers("/").permitAll()
                 .antMatchers("/index.html").permitAll()
                 .antMatchers("/registrationTrainer.html").permitAll()
+                .antMatchers("/api/training/types").permitAll()
+                .antMatchers("/api/appointment/**").permitAll()
+                .antMatchers("/api/appointment").permitAll()
                 .antMatchers("/js/**" , "/css/**").permitAll()
                 .antMatchers("/api/registration/**").permitAll()
                 .antMatchers("/registrationMember.html").permitAll()
                 .antMatchers("/registrationUser.html").permitAll()
+                .antMatchers("/memberprofile.html").hasAuthority(Role.MEMBER.getAuthority())
                 .antMatchers("/adminpanel.html").hasAuthority(Role.ADMIN.getAuthority())
+                .antMatchers("/api/hall/trainer").hasAuthority(Role.TRAINER.getAuthority())
                 .antMatchers("/api/admin").hasAuthority(Role.ADMIN.getAuthority())
                 .antMatchers("/api/admin/**").hasAuthority(Role.ADMIN.getAuthority())
                 .anyRequest().authenticated().and()
@@ -50,6 +61,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/403")
                 .and()
                 .csrf().disable();
+
+        http.headers().frameOptions().disable();
     }
 
     @Bean

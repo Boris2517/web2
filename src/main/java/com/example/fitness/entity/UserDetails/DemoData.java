@@ -22,9 +22,12 @@ public class DemoData {
     private final HallRepository hallRepository;
     private final AppointmentRepository appointmentRepository;
     private final MemberRepository memberRepository;
+    private final MyTimeRepository myTimeRepository;
+    private final TrainingTypeRepository trainingTypeRepository;
+    private final MyDateRepository myDateRepository;
 
     @Autowired
-    public DemoData(TrainerRepository trainerRepository, AdminRepository adminRepository, TrainingRepository trainingRepository, FitnessCenterRepository fitnessCenterRepository, HallRepository hallRepository, AppointmentRepository appointmentRepository, MemberRepository memberRepository) {
+    public DemoData(TrainerRepository trainerRepository, AdminRepository adminRepository, TrainingRepository trainingRepository, FitnessCenterRepository fitnessCenterRepository, HallRepository hallRepository, AppointmentRepository appointmentRepository, MemberRepository memberRepository, MyTimeRepository myTimeRepository, TrainingTypeRepository trainingTypeRepository, MyDateRepository myDateRepository) {
         this.trainerRepository = trainerRepository;
         this.adminRepository = adminRepository;
         this.trainingRepository = trainingRepository;
@@ -32,6 +35,9 @@ public class DemoData {
         this.hallRepository = hallRepository;
         this.appointmentRepository = appointmentRepository;
         this.memberRepository = memberRepository;
+        this.myTimeRepository = myTimeRepository;
+        this.trainingTypeRepository = trainingTypeRepository;
+        this.myDateRepository = myDateRepository;
     }
 
     @EventListener
@@ -41,6 +47,17 @@ public class DemoData {
         Date date = new SimpleDateFormat("dd/MM/yyyy").parse("21/08/1990");
 
         admin.setBirthdate(date);
+
+        //    STRENGTH,
+//    AEROBIC,
+//    BALANCE_AND_STABILITY,
+//    COORDINATION_AND_AGILITY,
+//    FLEXIBILITY_AND_MOBILITY
+        TrainingType trainingType1 = new TrainingType("STRENGTH");
+        TrainingType trainingType2 = new TrainingType("AEROBIC");
+        TrainingType trainingType3 = new TrainingType("BALANCE_AND_STABILITY");
+        TrainingType trainingType4 = new TrainingType("COORDINATION_AND_AGILITY");
+        TrainingType trainingType5 = new TrainingType("FLEXIBILITY_AND_MOBILITY");
 
         //Treneri
         Trainer trainer1 = new Trainer("trainer1", "sifra1", "Boris","Knezevic","0621914681","boris.knezevic@mail.ru");
@@ -142,14 +159,14 @@ public class DemoData {
         training1.setDuration(60);
         training1.setName("Aerobic - Trainer1");
         training1.setCreator(trainer1);
-        training1.setType(TrainingType.AEROBIC);
+        training1.setType(trainingType1);
 
         Training training2 = new Training();
         training2.setDescription("Kratki opis - strength - trainer1");
         training2.setDuration(120);
         training2.setName("Strength - Trainer1");
         training2.setCreator(trainer1);
-        training2.setType(TrainingType.STRENGTH);
+        training2.setType(trainingType2);
 
 
         //Trainer2
@@ -158,21 +175,21 @@ public class DemoData {
         training3.setDuration(45);
         training3.setName("Aerobic - Trainer2");
         training3.setCreator(trainer2);
-        training3.setType(TrainingType.AEROBIC);
+        training3.setType(trainingType3);
 
         Training training4 = new Training();
         training4.setDescription("Kratki opis - Balance and Stability - trainer2");
         training4.setDuration(80);
         training4.setName("Balance and Stability - Trainer2");
         training4.setCreator(trainer2);
-        training4.setType(TrainingType.BALANCE_AND_STABILITY);
+        training4.setType(trainingType4);
         //Trainer 3
         Training training5 = new Training();
         training5.setDescription("Kratki opis - Flexibility and Mobility - trainer3");
         training5.setDuration(45);
         training5.setName("Flexibility - Trainer3");
         training5.setCreator(trainer3);
-        training5.setType(TrainingType.FLEXIBILITY_AND_MOBILITY);
+        training5.setType(trainingType5);
 
         //Trainer 4
         Training training6 = new Training();
@@ -180,7 +197,7 @@ public class DemoData {
         training6.setDuration(90);
         training6.setName("Strength - Trainer4");
         training6.setCreator(trainer4);
-        training6.setType(TrainingType.STRENGTH);
+        training6.setType(trainingType1);
 
         //Trainer 5
         Training training7 = new Training();
@@ -188,7 +205,7 @@ public class DemoData {
         training7.setDuration(45);
         training7.setName("Strength - Trainer5");
         training7.setCreator(trainer4);
-        training7.setType(TrainingType.STRENGTH);
+        training7.setType(trainingType1);
 
         //Trainer 6
         Training training8 = new Training();
@@ -196,19 +213,22 @@ public class DemoData {
         training8.setDuration(45);
         training8.setName("Coordination and Agility - Trainer6");
         training8.setCreator(trainer6);
-        training8.setType(TrainingType.COORDINATION_AND_AGILITY);
+        training8.setType(trainingType4);
 
-        Date appDate1 = new SimpleDateFormat("dd/mm/yyyy").parse("12/09/2021");
+        MyDate appDate1 = new MyDate(12,9,2021);
+        MyTime time1 = new MyTime(12,30);
         Appointment appointment1 = new Appointment();
         appointment1.setTraining(training1);
-        appointment1.setNumberOfAttendees(20);
+        appointment1.setNumberOfAttendees(1);
         appointment1.setPrice(102.00f);
         appointment1.setDate(appDate1);
         appointment1.setHall(hall1);
         appointment1.setFitnessCenter(fitnessCenter1);
         appointment1.setTrainer(training1.getCreator());
+        appointment1.setTime(time1);
 
-        Date appDate2 = new SimpleDateFormat("dd/mm/yyyy").parse("18/09/2021");
+        MyDate appDate2 = new MyDate(18,9,2021);
+        MyTime time2 = new MyTime(12,30);
         Appointment appointment2 = new Appointment();
         appointment2.setTraining(training2);
         appointment2.setNumberOfAttendees(30);
@@ -217,9 +237,12 @@ public class DemoData {
         appointment2.setHall(hall2);
         appointment2.setFitnessCenter(fitnessCenter1);
         appointment2.setTrainer(training2.getCreator());
+        appointment2.setTime(time2);
 
-        Date appDate3 = new SimpleDateFormat("dd/mm/yyyy").parse("20/09/2021");
+        MyDate appDate3 = new MyDate(20,9,2021);
+
         Appointment appointment3 = new Appointment();
+        MyTime time3 = new MyTime(18,30);
         appointment3.setTraining(training1);
         appointment3.setNumberOfAttendees(45);
         appointment3.setPrice(102.00f);
@@ -227,11 +250,51 @@ public class DemoData {
         appointment3.setHall(hall3);
         appointment3.setFitnessCenter(fitnessCenter1);
         appointment3.setTrainer(training1.getCreator());
+        appointment3.setTime(time3);
+
+
+
+        MyDate appDate4 = new MyDate(18,9,2021);
+        Appointment appointment4 = new Appointment();
+        MyTime time4 = new MyTime(9,00);
+        appointment4.setTraining(training3);
+        appointment4.setNumberOfAttendees(25);
+        appointment4.setPrice(60.00f);
+        appointment4.setDate(appDate4);
+        appointment4.setHall(hall5);
+        appointment4.setFitnessCenter(fitnessCenter2);
+        appointment4.setTrainer(training3.getCreator());
+        appointment4.setTime(time4);
+
+        MyDate appDate5 = new MyDate(29,9,2021);
+        MyTime time5 = new MyTime(11,20);
+        Appointment appointment5 = new Appointment();
+        appointment5.setTraining(training4);
+        appointment5.setNumberOfAttendees(15);
+        appointment5.setPrice(88.00f);
+        appointment5.setDate(appDate5);
+        appointment5.setHall(hall6);
+        appointment5.setFitnessCenter(fitnessCenter2);
+        appointment5.setTrainer(training4.getCreator());
+        appointment5.setTime(time5);
+//
+//        Date appDate6 = new SimpleDateFormat("dd/mm/yyyy").parse("30/09/2021");
+//        Appointment appointment6 = new Appointment();
+//        appointment6.setTraining(training2);
+//        appointment6.setNumberOfAttendees(15);
+//        appointment6.setPrice(63.00f);
+//        appointment6.setDate(appDate6);
+//        appointment6.setHall(hall9);
+//        appointment6.setFitnessCenter(fitnessCenter3);
+//        appointment6.setTrainer(training2.getCreator());
 
 
         fitnessCenter1.addAppointment(appointment1);
         fitnessCenter1.addAppointment(appointment2);
         fitnessCenter1.addAppointment(appointment3);
+        fitnessCenter2.addAppointment(appointment4);
+        fitnessCenter2.addAppointment(appointment5);
+//        fitnessCenter3.addAppointment(appointment6);
 
         //Members
 
@@ -363,6 +426,23 @@ public class DemoData {
         member10.setPhone("06809377205");
         member10.setBirthdate(memDate10);
 
+        this.myDateRepository.save(appDate1);
+        this.myDateRepository.save(appDate2);
+        this.myDateRepository.save(appDate3);
+        this.myDateRepository.save(appDate4);
+        this.myDateRepository.save(appDate5);
+
+        this.myTimeRepository.save(time1);
+        this.myTimeRepository.save(time2);
+        this.myTimeRepository.save(time3);
+        this.myTimeRepository.save(time5);
+        this.myTimeRepository.save(time4);
+
+        this.trainingTypeRepository.save(trainingType1);
+        this.trainingTypeRepository.save(trainingType2);
+        this.trainingTypeRepository.save(trainingType3);
+        this.trainingTypeRepository.save(trainingType4);
+        this.trainingTypeRepository.save(trainingType5);
 
         this.adminRepository.save(admin);
         this.trainerRepository.save(trainer1);
@@ -372,6 +452,12 @@ public class DemoData {
         this.trainerRepository.save(trainer5);
         this.trainerRepository.save(trainer6);
 
+
+        this.appointmentRepository.save(appointment1);
+        this.appointmentRepository.save(appointment2);
+        this.appointmentRepository.save(appointment3);
+        this.appointmentRepository.save(appointment4);
+        this.appointmentRepository.save(appointment5);
 
         this.fitnessCenterRepository.save(fitnessCenter1);
         this.fitnessCenterRepository.save(fitnessCenter2);
@@ -397,9 +483,6 @@ public class DemoData {
         this.trainingRepository.save(training8);
 
 
-        this.appointmentRepository.save(appointment1);
-        this.appointmentRepository.save(appointment2);
-        this.appointmentRepository.save(appointment3);
 
         this.memberRepository.save(member1);
         this.memberRepository.save(member2);

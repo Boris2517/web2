@@ -7,6 +7,8 @@ public class HallDTO {
     private String mark;
     private String fitnessCenterName;
 
+    public HallDTO(){}
+
     public HallDTO(Integer capacity, String mark, String fitnessCenterName) {
         this.capacity = capacity;
         this.mark = mark;

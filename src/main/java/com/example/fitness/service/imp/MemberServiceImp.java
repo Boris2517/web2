@@ -34,8 +34,13 @@ public class MemberServiceImp implements MemberService {
 
         Optional<Appointment> appointment = this.appointmentRepository.findById(appointmentSignUpDTO.getAppointmentId());
         Optional<Member> member = this.memberRepository.findByUsername(username);
-        appointment.get().setParticipants(member.get());
-        this.appointmentRepository.save(appointment.get());
+        System.out.println("Broj prijavljenih:" + appointment.get().getParticipants().stream().count());
+        System.out.println("Broj mesta:" + appointment.get().getNumberOfAttendees());
+        if(appointment.get().getNumberOfAttendees() > appointment.get().getParticipants().stream().count()){
+            appointment.get().setParticipants(member.get());
+            this.appointmentRepository.save(appointment.get());
+        } else throw new Exception("Popunjeno!");
+
 
     }
 

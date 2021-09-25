@@ -1,52 +1,70 @@
 package com.example.fitness.entity.DTO;
 
-import com.example.fitness.entity.Day;
-import com.example.fitness.entity.FitnessCenter;
-import com.example.fitness.entity.Hall;
-import com.example.fitness.entity.Training;
-
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-import java.time.LocalTime;
+import com.example.fitness.entity.*;
 import java.util.Date;
 
 public class AppointmentDTO {
 
-    Long id;
+    private Long id;
 
-    String trainerUsername;
+    private String trainerUsername;
 
-    String trainingName;
+    private String trainingName;
 
-    Day trainingDay;
+    private Day trainingDay;
 
-    LocalTime time;
+    private int hour;
 
-    Date date;
+    private int min;
 
-    String hall;
+    private int day;
 
-    int numberOfAttendees;
+    private int month;
 
-    float price;
+    private int year;
 
-    String fintessCenter;
+    private String hall;
+
+    private int numberOfAttendees;
+
+    private float price;
+
+    private String fitnessCenter;
+
+    private String trainingType;
 
 
     public AppointmentDTO() {
     }
 
-    public AppointmentDTO(Long id, String trainerUsername, String trainingName, Day trainingDay, LocalTime time, Date date, String hall, int numberOfAttendees, float price, String fintessCenter) {
+    public AppointmentDTO(String trainerUsername, String trainingName, int hour, int min, String hall, int numberOfAttendees, float price, String fitnessCenter) {
+        this.trainerUsername = trainerUsername;
+        this.trainingName = trainingName;
+        this.hour = hour;
+        this.min = min;
+        this.hall = hall;
+        this.numberOfAttendees = numberOfAttendees;
+        this.price = price;
+        this.fitnessCenter = fitnessCenter;
+    }
+
+    public AppointmentDTO(Long id, String trainerUsername, String trainingName, Day trainingDay, int hour, int min, String hall, int numberOfAttendees, float price, String fitnessCenter) {
         this.id = id;
         this.trainerUsername = trainerUsername;
         this.trainingName = trainingName;
         this.trainingDay = trainingDay;
-        this.time = time;
-        this.date = date;
+        this.hour = hour;
+        this.min = min;
         this.hall = hall;
         this.numberOfAttendees = numberOfAttendees;
         this.price = price;
-        this.fintessCenter = fintessCenter;
+        this.fitnessCenter = fitnessCenter;
+    }
+
+    public void setDate(MyDate date){
+        this.day = date.getDay();
+        this.month = date.getMonth();
+        this.year = date.getYear();
     }
 
     public String getTrainerUsername() {
@@ -73,20 +91,20 @@ public class AppointmentDTO {
         this.trainingDay = trainingDay;
     }
 
-    public LocalTime getTime() {
-        return time;
+    public int getHour() {
+        return hour;
     }
 
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public void setHour(int hour) {
+        this.hour = hour;
     }
 
-    public Date getDate() {
-        return date;
+    public int getMin() {
+        return min;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setMin(int min) {
+        this.min = min;
     }
 
     public String getHall() {
@@ -121,11 +139,44 @@ public class AppointmentDTO {
         this.id = id;
     }
 
-    public String getFintessCenter() {
-        return fintessCenter;
+    public String getFitnessCenter() {
+        return fitnessCenter;
     }
 
-    public void setFintessCenter(String fintessCenter) {
-        this.fintessCenter = fintessCenter;
+    public void setFitnessCenter(String fitnessCenter) {
+        this.fitnessCenter = fitnessCenter;
+    }
+
+    public String getTrainingType() {
+        return trainingType;
+    }
+
+    public void setTrainingType(String trainingType) {
+        this.trainingType = trainingType;
+    }
+
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }

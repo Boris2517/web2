@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface AppointmentService {
-    Appointment createAppointment(AppointmentDTO appointmentDTO) throws Exception;
+    Appointment createAppointment(AppointmentDTO appointmentDTO, String username) throws Exception;
     ArrayList<Appointment> getAppointmentsByFitnessCenter(FitnessCenterNameDTO fitnessCenterNameDTO);
     List<Appointment> getAllAppointments();
     List<Appointment> getMemberAppointments(String username);
+    ArrayList<Appointment> getTrainerAppointments(String username) throws Exception;
 }

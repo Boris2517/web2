@@ -11,7 +11,7 @@ public class Training {
     private String name;
     @Column(name="description", unique=false, nullable=false)
     private String description;
-    @Column(name="type", unique=false, nullable=false)
+    @OneToOne
     private TrainingType type;
     @Column(name="duration", unique=false, nullable=false)
     private Integer duration;
