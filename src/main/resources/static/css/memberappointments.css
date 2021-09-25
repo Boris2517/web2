@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+h2{
+    text-align: center;
+}
+
+body{
+    background-color: coral;
+    color:whitesmoke;
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+.table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table thead{
+    background-color:steelblue;
+}
+
+.table tbody tr td{
+    text-align: center;
+}
+
+.btn-table{
+    background-color:yellowgreen;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
